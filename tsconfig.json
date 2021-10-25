@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "target": "es2018",
+    "module": "commonjs",
+    "strict": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "outDir": "lib"
+  },
+  "exclude": ["generateExports.ts", "node_modules", "lib"]
+}

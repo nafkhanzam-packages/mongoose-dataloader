@@ -1,0 +1,8 @@
+{
+  "gen-exports": [
+    {
+      "globs": ["src/**/*.ts"],
+      "output": "src/index.ts"
+    }
+  ]
+}

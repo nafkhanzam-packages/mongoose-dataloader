@@ -1,0 +1,18 @@
+# Node
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.nexus
+db.sqlite
+build
+logs
+.env*
+secrets
+.tmp_build
+sandbox.ts
+jest_html_reporters.html
+paljs
+
+lib
