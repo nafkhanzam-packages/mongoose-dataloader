@@ -1,6 +1,6 @@
 {
   "name": "@nafkhanzam/mongoose-dataloader",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "private": false,
@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "prepublish": "pnpm build",
-    "build": "tsc",
-    "patch": "pnpm version --patch"
+    "build": "nz gen-exports && tsc",
+    "patch": "yarn version --patch"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,9 @@
     "typescript": "^4.4.4"
   },
   "dependencies": {
+    "@nestjs/graphql": "^9.1.1",
     "dataloader": "^2.0.0",
-    "mongoose": "^6.0.12"
+    "mongoose": "^6.0.12",
+    "typegoose-cursor-pagination": "^1.2.2"
   }
 }

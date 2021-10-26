@@ -5,8 +5,10 @@
     "target": "es2018",
     "module": "commonjs",
     "strict": true,
+    "strictPropertyInitialization": false,
     "isolatedModules": true,
     "declaration": true,
+    "experimentalDecorators": true,
     "outDir": "lib"
   },
   "exclude": ["generateExports.ts", "node_modules", "lib"]

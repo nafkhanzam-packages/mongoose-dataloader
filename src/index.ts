@@ -4,3 +4,4 @@
  */
 
 export * from "./mongoose-dataloader.plugin";
+export * from "./relay-connection";
