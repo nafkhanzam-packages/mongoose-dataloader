@@ -12,20 +12,20 @@ import { IPaginateResult, IPaginateOptions } from "typegoose-cursor-pagination";
 
 @ObjectType()
 export class RelayPageInfo {
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   startCursor?: string;
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   endCursor?: string;
 
-  @Field()
-  hasPreviousPage: boolean;
+  @Field(() => Boolean)
+  hasPreviousPage!: boolean;
 
-  @Field()
-  hasNextPage: boolean;
+  @Field(() => Boolean)
+  hasNextPage!: boolean;
 
-  @Field()
-  totalDocs: number;
+  @Field(() => Number)
+  totalDocs!: number;
 }
 
 export interface IRelayConnection<NodeValue> {
@@ -35,16 +35,16 @@ export interface IRelayConnection<NodeValue> {
 
 @InputType()
 export class RelayConnectionArgs {
-  @Field({ nullable: true })
+  @Field(() => Number, { nullable: true })
   first?: number;
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   after?: string;
 
-  @Field({ nullable: true })
+  @Field(() => Number, { nullable: true })
   last?: number;
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   before?: string;
 }
 
@@ -83,6 +83,7 @@ function createConnectionDecorator(
   ) => MethodDecorator,
 ) {
   return function <T extends Constructor>(
+    prefix: string,
     nodeClassRefFunc: ReturnTypeFunc,
     options?: FieldOptions,
   ): MethodDecorator {
@@ -93,14 +94,13 @@ function createConnectionDecorator(
     ) => {
       const nodeClassRef = nodeClassRefFunc() as symbol;
 
-      // TODO: Change `nodeClassRef.description` to corresponding name. Because it's not always the same as class name. e.g. @ObjectType('ThisName')
-      @ObjectType(`${nodeClassRef.description}Connection`)
+      @ObjectType(`${prefix}Connection`)
       class ConnectionObjectType implements IRelayConnection<T> {
         @Field(() => RelayPageInfo)
-        pageInfo: RelayPageInfo;
+        pageInfo!: RelayPageInfo;
 
         @Field(() => [nodeClassRef])
-        edges: T[];
+        edges!: T[];
       }
 
       FieldDecorator(() => ConnectionObjectType, options)(

@@ -8,22 +8,17 @@ export interface IPluginOptions {
 const createDataLoader = <T>(
   model: Model<T, any, { _dataLoader: DataLoader<string, T> }>,
 ) =>
-  new DataLoader<string, T | null>(async (ids) => {
+  new DataLoader<string, T | null>(async (ids: any) => {
     const result = await model.find().where({
       _id: {
         $in: ids,
       },
     });
     const results = new Array<T | null>(ids.length);
-    let ir = 0;
     for (let i = 0; i < ids.length; ++i) {
       const id = ids[i];
-      if (id === result[ir]?._id?.toString()) {
-        results[i] = result[ir];
-        ++ir;
-      } else {
-        results[i] = null;
-      }
+      results[i] =
+        result.filter((v: any) => v?._id?.toString() === id)[0] ?? null;
     }
     return results;
   });
