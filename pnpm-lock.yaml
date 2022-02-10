@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@nafkhanzam/nz-cli': ^0.0.23
   '@nestjs/graphql': ^9.1.1
+  '@typegoose/typegoose': ^9.6.2
   dataloader: ^2.0.0
   mongoose: ^6.0.12
   typegoose-cursor-pagination: ^1.2.2
@@ -10,6 +11,7 @@ specifiers:
 
 dependencies:
   '@nestjs/graphql': 9.1.1
+  '@typegoose/typegoose': 9.6.2_mongoose@6.0.12
   dataloader: 2.0.0
   mongoose: 6.0.12
   typegoose-cursor-pagination: 1.2.2
@@ -267,11 +269,25 @@ packages:
       mongoose: ^5.9.2
     dependencies:
       lodash: 4.17.21
-      loglevel: 1.7.1
+      loglevel: 1.8.0
       mongoose: 5.13.12
       reflect-metadata: 0.1.13
       semver: 7.3.5
       tslib: 1.14.1
+    dev: false
+
+  /@typegoose/typegoose/9.6.2_mongoose@6.0.12:
+    resolution: {integrity: sha512-KirCPXVZmiBXZfsiA190dfg9dhzZ21EZvQR8RnZIWW66niZb2nmZOVHbtR5tXzoqX2vB+oFgEPOLAIdVZWSDPw==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      mongoose: ~6.2.0
+    dependencies:
+      lodash: 4.17.21
+      loglevel: 1.8.0
+      mongoose: 6.0.12
+      reflect-metadata: 0.1.13
+      semver: 7.3.5
+      tslib: 2.3.1
     dev: false
 
   /@types/bson/4.0.5:
@@ -877,8 +893,8 @@ packages:
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
-  /loglevel/1.7.1:
-    resolution: {integrity: sha512-Hesni4s5UkWkwCGJMQGAh71PaLUmKFM60dHvq0zi/vDhhrzuk+4GgNbTXJ12YYQJn6ZKBDNIjYcuQGKudvqrIw==}
+  /loglevel/1.8.0:
+    resolution: {integrity: sha512-G6A/nJLRgWOuuwdNuA6koovfEV1YpqqAG4pRUlFaz3jj2QNZ8M4vBqnVA+HBTmU/AMNUtlOsMmSpF6NyOjztbA==}
     engines: {node: '>= 0.6.0'}
     dev: false
 
