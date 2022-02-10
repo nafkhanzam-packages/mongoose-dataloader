@@ -1,6 +1,6 @@
 {
   "name": "@nafkhanzam/mongoose-dataloader",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "private": false,
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@nestjs/graphql": "^9.1.1",
+    "@typegoose/typegoose": "^9.6.2",
     "dataloader": "^2.0.0",
     "mongoose": "^6.0.12",
     "typegoose-cursor-pagination": "^1.2.2"
